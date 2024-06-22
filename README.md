@@ -57,4 +57,7 @@ Use the provided Postman collection to test the API endpoints.
 
 ## Performance
 Ensure the `GET /lesson/{id}` endpoint returns a response within 200 milliseconds. Test with a course of more than 20 lessons to measure the performance.
+There are also tests to see the response time less than 25ms
+
+> **_NOTE:_** These tests will only pass in production
 
