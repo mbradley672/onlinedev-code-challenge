@@ -1,0 +1,27 @@
+﻿@baseUrl = https://localhost:44360
+@lessonId = 35d9f982-07ed-4b61-9dd0-1de3b7d1a829
+@invalidLessonId = non-existing-lesson-id
+@jwt_token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5b3VyaXNzdWVyIiwiaWF0IjoxNzE5MDkzMjYxLCJleHAiOjIzODE3ODEyODIsImF1ZCI6InlvdXJhdWRpZW5jZSIsInN1YiI6IjYyM2FjNjExLTJhYTItNDA2Yi05MDJmLTNiN2MyYjExMTYxZSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJGdWxsIE5hbWUiOiJKb2hubiBSb2NrZXQifQ.FDRlMEJfich6fxyCpPH4HIgr1Wrg13HpeRwLJYt-mjU
+@percentageWatched = 75
+
+###
+# Create WatchLog
+POST {{baseUrl}}/watchLog/{{lessonId}}?pw={{percentageWatched}}
+Authorization: Bearer {{jwt_token}}
+Content-Type: application/json
+
+###
+# Create WatchLog with Invalid Lesson ID
+POST {{baseUrl}}/watchLog/{{lessonId}}?pw={{percentageWatched}}
+Authorization: Bearer {{jwt_token}}
+Content-Type: application/json
+
+###
+# Get Lesson Details
+GET {{baseUrl}}/lesson/{{lessonId}}
+Authorization: Bearer {{jwt_token}}
+
+###
+# Get Lesson Details with Invalid ID
+GET {{baseUrl}}/lesson/{{invalidLessonId}}
+Authorization: Bearer {{jwt_token}}

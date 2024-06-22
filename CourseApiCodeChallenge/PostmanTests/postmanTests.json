@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "9fc87138-e8e7-4f78-abeb-2544a4a64e4c",
+		"name": "Online Course API",
+		"description": "Collection for testing Online Course API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31874944"
+	},
+	"item": [
+		{
+			"name": "Get Lesson Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					}
+				],
+				"url": "{{domain}}/lesson/{{lessonId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create WatchLog",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/watchLog/{{lessonId}}?percentageWatched={{percentageWatched}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"watchLog",
+						"{{lessonId}}"
+					],
+					"query": [
+						{
+							"key": "percentageWatched",
+							"value": "{{percentageWatched}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{jwt_token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5b3VyaXNzdWVyIiwiaWF0IjoxNzE5MDkzMjYxLCJleHAiOjIzODE3ODEyODIsImF1ZCI6InlvdXJhdWRpZW5jZSIsInN1YiI6IjYyM2FjNjExLTJhYTItNDA2Yi05MDJmLTNiN2MyYjExMTYxZSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJGdWxsIE5hbWUiOiJKb2hubiBSb2NrZXQifQ.FDRlMEJfich6fxyCpPH4HIgr1Wrg13HpeRwLJYt-mjU",
+			"type": "string"
+		},
+		{
+			"key": "lessonId",
+			"value": "35d9f982-07ed-4b61-9dd0-1de3b7d1a829",
+			"type": "string"
+		},
+		{
+			"key": "percentageWatched",
+			"value": "75",
+			"type": "string"
+		},
+		{
+			"key": "domain",
+			"value": "https://localhost:44360",
+			"type": "string"
+		}
+	]
+}
